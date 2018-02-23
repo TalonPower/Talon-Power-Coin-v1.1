@@ -1,5 +1,5 @@
 ---
-name: "talonpower"
+name: "boost"
 suites:
 - "precise"
 architectures:
