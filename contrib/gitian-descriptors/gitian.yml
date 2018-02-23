@@ -1,5 +1,5 @@
 ---
-name: "funcoin"
+name: "talonpower"
 suites:
 - "lucid"
 architectures:
@@ -20,8 +20,8 @@ packages:
 - "libpng12-dev"
 reference_datetime: "2011-01-30 00:00:00"
 remotes:
-- "url": "https://github.com/schyczewski/funcoin.git"
-  "dir": "funcoin"
+- "url": "https://github.com/TalonPower/Talon-Power-Coin-v1.1.git"
+  "dir": "talonpower"
 files:
 - "miniupnpc-1.9.20140401.tar.gz"
 - "qrencode-3.4.3.tar.bz2"
