@@ -44,7 +44,7 @@ script: |
   make $MAKEOPTS install
   cd ..
   #
-  cd funcoin
+  cd talonpower
   mkdir -p $OUTDIR/src
   git archive HEAD | tar -x -C $OUTDIR/src
   cp $OUTDIR/src/doc/README.md $OUTDIR
