@@ -38,7 +38,7 @@ script: |
   #
   mkdir -p $INSTALLPREFIX
 
-  tar --touch xzf openssl-1.0.1k.tar.gz
+  tar touch xzf openssl-1.0.1k.tar.gz
   cd openssl-1.0.1k
   ./Configure --cross-compile-prefix=$HOST- mingw --openssldir=$INSTALLPREFIX
   make
