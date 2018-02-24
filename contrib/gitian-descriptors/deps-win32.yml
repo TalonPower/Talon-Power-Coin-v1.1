@@ -41,6 +41,7 @@ script: |
   tar xzf openssl-1.0.1k.tar.gz
   cd openssl-1.0.1k
   ./Configure --cross-compile-prefix=$HOST- mingw --openssldir=$INSTALLPREFIX
+  make clean
   make
   make install_sw
   cd ..
@@ -79,6 +80,7 @@ script: |
   tar xzf zlib-1.2.8.tar.gz
   cd zlib-1.2.8
   CROSS_PREFIX=$HOST- ./configure --prefix=$INSTALLPREFIX --static
+  make clean
   make
   make install
   cd ..
@@ -93,6 +95,7 @@ script: |
   tar xjf qrencode-3.4.3.tar.bz2
   cd qrencode-3.4.3
   png_CFLAGS="-I$INSTALLPREFIX/include" png_LIBS="-L$INSTALLPREFIX/lib -lpng" ./configure --prefix=$INSTALLPREFIX --host=$HOST
+  make clean
   make
   make install
   cd ..
