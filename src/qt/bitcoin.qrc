@@ -48,6 +48,7 @@
         <file alias="about">res/images/about.png</file>
         <file alias="splash">res/images/splash3.png</file>
         
+        <file alias="bkg">res/images/tx_back.png</file>
         <file alias="bkg">res/images/bkg.png</file>
         <file alias="bkg">res/images/bkg2.png</file>
         
