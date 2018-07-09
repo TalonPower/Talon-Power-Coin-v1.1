@@ -1007,6 +1007,27 @@ int64_t GetProofOfWorkReward(int64_t nFees)
             {
             nSubsidy = 913846 * COIN;
             }
+			
+			if (nBestHeight > 310000)
+				nSubsidy = 7 * COIN;
+			if (nBestHeight > 450000)
+				nSubsidy = 15 * COIN;
+			if (nBestHeight > 550000)
+				nSubsidy = 10 * COIN;
+			if (nBestHeight > 700000)
+				nSubsidy = 15 * COIN;
+			if (nBestHeight > 800000)
+				nSubsidy = 3 * COIN;
+			if (nBestHeight > 900000)
+				nSubsidy = 7 * COIN;
+			if (nBestHeight > 1150000)
+				nSubsidy = 15 * COIN;
+			if (nBestHeight > 1350000)
+				nSubsidy = 10 * COIN;
+			if (nBestHeight > 1700000)
+				nSubsidy = 15 * COIN;
+			if (nBestHeight > 2000000)
+				nSubsidy = 3 * COIN;
 
     if (fDebug && GetBoolArg("-printcreation"))
         printf("GetProofOfWorkReward() : create=%s nSubsidy=%"PRId64"\n", FormatMoney(nSubsidy).c_str(), nSubsidy);
@@ -1017,7 +1038,30 @@ int64_t GetProofOfWorkReward(int64_t nFees)
 // miner's coin stake reward based on coin age spent (coin-days)
 int64_t GetProofOfStakeReward(int64_t nCoinAge, int64_t nFees)
 {
-    int64_t nSubsidy = nCoinAge * COIN_YEAR_REWARD * 33 / (365 * 33 + 8);
+	int64_t nPOSPercentage = COIN_YEAR_REWARD;
+	
+			if (nBestHeight > 310000)
+				nPOSPercentage = 250 * CENT;
+			if (nBestHeight > 450000)
+				nPOSPercentage = 50 * CENT;
+			if (nBestHeight > 550000)
+				nPOSPercentage = 500 * CENT;
+			if (nBestHeight > 700000)
+				nPOSPercentage = 100 * CENT;
+			if (nBestHeight > 800000)
+				nPOSPercentage = 1000 * CENT;
+			if (nBestHeight > 900000)
+				nPOSPercentage = 250 * CENT;
+			if (nBestHeight > 1150000)
+				nPOSPercentage = 50 * CENT;
+			if (nBestHeight > 1350000)
+				nPOSPercentage = 500 * CENT;
+			if (nBestHeight > 1700000)
+				nPOSPercentage = 100 * CENT;
+			if (nBestHeight > 2000000)
+				nPOSPercentage = 1000 * CENT;
+	
+    int64_t nSubsidy = nCoinAge * nPOSPercentage * 33 / (365 * 33 + 8);
 
     if (fDebug && GetBoolArg("-printcreation"))
         printf("GetProofOfStakeReward(): create=%s nCoinAge=%"PRId64"\n", FormatMoney(nSubsidy).c_str(), nCoinAge);
