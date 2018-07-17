@@ -108,7 +108,7 @@ Value getworkex(const Array& params, bool fHelp)
     if (IsInitialBlockDownload())
         throw JSONRPCError(-10, "TalonPower is downloading blocks...");
 
-    if (pindexBest->nHeight >= LAST_POW_BLOCK)
+    if (pindexBest->nHeight >= POW_TURN_OFF && pindexBest->nHeight < POW_TURN_ON)
         throw JSONRPCError(RPC_MISC_ERROR, "No more PoW blocks");
 
     typedef map<uint256, pair<CBlock*, CScript> > mapNewBlock_t;
@@ -242,7 +242,7 @@ Value getwork(const Array& params, bool fHelp)
     if (IsInitialBlockDownload())
         throw JSONRPCError(RPC_CLIENT_IN_INITIAL_DOWNLOAD, "TalonPower is downloading blocks...");
 
-    if (pindexBest->nHeight >= LAST_POW_BLOCK)
+    if (pindexBest->nHeight >= POW_TURN_OFF && pindexBest->nHeight < POW_TURN_ON)
         throw JSONRPCError(RPC_MISC_ERROR, "No more PoW blocks");
 
     typedef map<uint256, pair<CBlock*, CScript> > mapNewBlock_t;
@@ -386,7 +386,7 @@ Value getblocktemplate(const Array& params, bool fHelp)
     if (IsInitialBlockDownload())
         throw JSONRPCError(RPC_CLIENT_IN_INITIAL_DOWNLOAD, "TalonPower is downloading blocks...");
 
-    if (pindexBest->nHeight >= LAST_POW_BLOCK)
+    if (pindexBest->nHeight >= POW_TURN_OFF && pindexBest->nHeight < POW_TURN_ON)
         throw JSONRPCError(RPC_MISC_ERROR, "No more PoW blocks");
 
     static CReserveKey reservekey(pwalletMain);

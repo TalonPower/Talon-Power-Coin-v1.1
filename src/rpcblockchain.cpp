@@ -45,7 +45,7 @@ double GetDifficulty(const CBlockIndex* blockindex)
 
 double GetPoWMHashPS()
 {
-    if (pindexBest->nHeight >= LAST_POW_BLOCK)
+    if (pindexBest->nHeight >= POW_TURN_OFF && pindexBest->nHeight < POW_TURN_ON)
         return 0;
 
     int nPoWInterval = 72;
